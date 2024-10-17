@@ -1,6 +1,7 @@
-
 #ukol 2
 def cislo_text(cislo):
+    cislo_input = str(cislo)
+    cislo_int = int(cislo)
     cisla = {
         "0": "nula",
         "1": "jedna",
@@ -33,25 +34,24 @@ def cislo_text(cislo):
         "100": "sto"
         }
 
-    if cislo in cisla:
-            return cisla[cislo]
+    if cislo_input in cisla:
+            return cisla[cislo_input]
     else:  
         #Pro čísla od 21 do 99
-        if 21 <= int(cislo) < 100:
-            desitky = int(cislo) // 10 * 10     #Ziskani desitky
-            jednotky = int(cislo) % 10          #Ziskani jednotky
+        if 21 <= cislo_int < 100:
+            desitky = cislo_int // 10 * 10     #Ziskani desitky
+            jednotky = cislo_int % 10          #Ziskani jednotky
             if jednotky == 0: 
                 return cisla[str(desitky)]
             else:
                 return cisla[str(desitky)] + " " + cisla[str(jednotky)]
-        return "Neznámé číslo"                  #Pokud číslo není platné
+        return None                             #Pokud číslo není platné
 
 #přiklad použití 
 if __name__ == "__main__":
-    cislo = input ("Zadejte číslo:  ")          #User zadá číslo
+    cislo = 100                                 #User input
+    string_cislo = ('100')                      #User input (same but  to test string input in "cislo_text" function)
     text = cislo_text(cislo)                    #Volání funkce
     print(text)                                 #Výstup textové reprezentace čísla 
-                          
-
 
             
