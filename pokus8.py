@@ -1,0 +1,1 @@
+from cviceni8 import obsach 
